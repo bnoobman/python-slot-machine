@@ -1,25 +1,16 @@
+import json
 import random
 
-MAX_LINES: int = 3
-MAX_BET: int = 100
-MIN_BET: int = 1
+with open('settings.json', 'r') as f:
+    config = json.load(f)
 
-ROWS = 3
-COLS = 3
-
-symbol_count = {
-    "A": 4,
-    "B": 6,
-    "C": 8,
-    "D": 12,
-}
-
-symbol_value = {
-    "A": 5,
-    "B": 4,
-    "C": 3,
-    "D": 2,
-}
+MAX_LINES = config['MAX_LINES']
+MAX_BET = config['MAX_BET']
+MIN_BET = config['MIN_BET']
+ROWS = config['ROWS']
+COLS = config['COLS']
+symbol_count = config['symbol_count']
+symbol_value = config['symbol_value']
 
 
 def check_winnings(columns, lines, bet, values):
